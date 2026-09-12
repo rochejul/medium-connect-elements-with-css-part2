@@ -33,7 +33,6 @@ body {
   box-shadow: 10px 10px 20px 5px rgba(0, 0, 0, 0.5);
   border: 1px solid transparent;
   border-radius: 1rem;
-  pointer-events: none;
   position: absolute;
   height: 5rem;
   width: 5rem;
@@ -51,6 +50,18 @@ body {
     background-color: lightgreen;
     top: 185px;
     left: 505px;
+  }
+
+  &.box--movable {
+    cursor: pointer;
+
+    &.box--move-in-progress {
+      cursor: move;
+    }
+  }
+
+  &:not(.box--movable) {
+    pointer-events: none;
   }
 }
 
