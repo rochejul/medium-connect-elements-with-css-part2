@@ -71,6 +71,9 @@ body {
   z-index: 9;
 
   container-type: anchored;
+  position-try:
+    --link-on-above, --link-right-top, --link-left-bottom, --link-on-below,
+    --link-right-bottom;
   inset-block-start: anchor(--box1 center);
   inset-inline-start: anchor(--box1 right);
   inset-inline-end: anchor(--box2 left);
@@ -93,4 +96,42 @@ body {
   &.link--debug {
     border: 1px dotted black;
   }
+}
+
+@position-try --link-left-bottom {
+  /*Moving box on left bottom of static box*/
+  inset-block-start: anchor(--box2 center);
+  inset-inline-start: anchor(--box1 center);
+  inset-inline-end: anchor(--box2 center);
+  inset-block-end: anchor(--box1 center);
+}
+
+@position-try --link-right-top {
+  /*Moving box on right top of static box*/
+  inset-block-start: anchor(--box1 center);
+  inset-inline-start: anchor(--box2 center);
+  inset-block-end: anchor(--box2 center);
+  inset-inline-end: anchor(--box1 center);
+}
+
+@position-try --link-right-bottom {
+  /*Moving box on right bottom of static box*/
+  inset-block-start: anchor(--box2 center);
+  inset-inline-start: anchor(--box2 center);
+  inset-inline-end: anchor(--box1 center);
+  inset-block-end: anchor(--box1 center);
+}
+
+@position-try --link-on-above {
+  inset-block-start: anchor(--box1 center);
+  inset-inline-start: anchor(--box1 center);
+  inset-inline-end: anchor(--box2 center);
+  inset-block-end: anchor(--box2 center);
+}
+
+@position-try --link-on-below {
+  inset-block-start: anchor(--box2 center);
+  inset-inline-start: anchor(--box1 center);
+  inset-block-end: anchor(--box1 center);
+  inset-inline-end: anchor(--box2 center);
 }
