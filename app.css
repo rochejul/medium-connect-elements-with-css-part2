@@ -66,10 +66,29 @@ body {
 }
 
 .link {
-  background-repeat: no-repeat;
   min-block-size: 2px;
   position: absolute;
   z-index: 9;
+
+  container-type: anchored;
+  inset-block-start: anchor(--box1 center);
+  inset-inline-start: anchor(--box1 right);
+  inset-inline-end: anchor(--box2 left);
+  inset-block-end: anchor(--box2 center);
+
+  background-image:
+    linear-gradient(to bottom, black, black),
+    linear-gradient(to right, black, black),
+    linear-gradient(to bottom, black, black);
+  background-size:
+    2px,
+    50% 2px,
+    50% 2px;
+  background-position:
+    center,
+    top left,
+    bottom right;
+  background-repeat: no-repeat;
 
   &.link--debug {
     border: 1px dotted black;
